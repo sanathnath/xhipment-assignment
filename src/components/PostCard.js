@@ -1,9 +1,11 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { PostState } from "../contexts/PostContext";
+import EditForm from "./EditForm";
 
 function PostCard({ info, user }) {
   const { post, setPost } = PostState();
+
 
   const deletePost = (id)=>{
     if(user != undefined || user != null){
@@ -12,7 +14,6 @@ function PostCard({ info, user }) {
     }
   }
 
-  const EditPost = ()=>{}
   return (
     <Paper elevation={6}>
       <Box
@@ -29,7 +30,7 @@ function PostCard({ info, user }) {
           <Typography variant="body1">{info.body}</Typography>
         </Box>
         {(user != undefined || user != null) && <Box marginTop="2rem">
-          <Button>Edit</Button>
+          <EditForm info={info} />
           <Button color="error" onClick={()=>{deletePost(info.id)}}>Delete</Button>
         </Box>}
       </Box>

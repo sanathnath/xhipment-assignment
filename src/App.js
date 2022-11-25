@@ -17,6 +17,7 @@ function App() {
   const { setPost } = PostState();
 
   useEffect(()=>{
+    setUser(window.localStorage.getItem("user"))
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res)=>{
       setPost(res.data);
     });

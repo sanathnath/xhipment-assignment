@@ -20,6 +20,7 @@ function Header() {
 
   const logOut = ()=>{
     signOut(auth);
+    window.localStorage.removeItem("user")
     setUser(null)
   }
 

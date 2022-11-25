@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import PostCard from "../components/PostCard";
 import { PostState } from "../contexts/PostContext";
 import { UserState } from "../contexts/UserContext";
+
 function HomePage() {
   const { post } = PostState();
   const { user } = UserState();

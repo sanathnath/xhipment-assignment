@@ -23,15 +23,6 @@ function Login({setIsLogin}) {
     }).catch((err)=>{
       console.log(err);
     })
-    // try {
-    //   const result = await signInWithEmailAndPassword(auth,email,password);
-    //   setError(false);
-    //   navigate('/');
-    //   console.log(result);
-    // } catch (error) {
-    //   setError(true);
-    //   console.log(error);
-    // }
   }
   return (
     <form onSubmit={handleSubmit}>

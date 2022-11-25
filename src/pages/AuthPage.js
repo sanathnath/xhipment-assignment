@@ -18,6 +18,7 @@ function AuthPage() {
     signInWithPopup(auth, googleAuthProvider).then((res)=>{
         console.log(res);
         setUser(res.user);
+        window.localStorage.setItem("user",res.user);
         navigate('/');
     })
   }
