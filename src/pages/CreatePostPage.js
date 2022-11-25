@@ -13,14 +13,18 @@ function CreatePostPage() {
   const { user } = UserState();
   const { post, setPost } = PostState();
 
-  const handleSubmit = () => {
-    const data = { title: title, body: body ,userId:user.user.uid };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(user);
+    const data = { title: event.target.title.value, body: event.target.description.value ,userId:user.uid };
     axios
       .post("https://jsonplaceholder.typicode.com/posts", data)
       .then((res) => {
         console.log(res.data);
         setPost([...post,res.data]);
         navigate('/');
+      }).catch((err)=>{
+        console.log(err);
       });
   };
   return (
@@ -42,8 +46,9 @@ function CreatePostPage() {
             flexDirection="column"
             alignItems="center"
           >
-            <TextField label="title" size="small" required />
+            <TextField name="title" label="title" size="small" required />
             <TextField
+              name="description"
               label="description"
               size="small"
               multiline
@@ -58,7 +63,7 @@ function CreatePostPage() {
               justifyContent="end"
             >
               <Button variant="contained" size="small"
-              onClick={()=>{navigate('/my-account')}}>
+              onClick={()=>{navigate('/')}}>
                 Cancel
               </Button>
               <Button type="submit" variant="contained" size="small">
