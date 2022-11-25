@@ -1,7 +1,7 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import React from "react";
 
-function PostCard({ info }) {
+function PostCard({ info, user }) {
   return (
     <Paper elevation={6}>
       <Box
@@ -17,10 +17,10 @@ function PostCard({ info }) {
         <Box>
           <Typography variant="body1">{info.body}</Typography>
         </Box>
-        <Box marginTop="2rem">
+        {(user != undefined || user != null) && <Box marginTop="2rem">
           <Button>Edit</Button>
           <Button color="error">Delete</Button>
-        </Box>
+        </Box>}
       </Box>
     </Paper>
   );
