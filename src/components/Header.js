@@ -62,8 +62,7 @@ function Header() {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={()=>{navigate('/create-post')}}>Create post</MenuItem>
               <MenuItem onClick={logOut}>Logout</MenuItem>
             </Menu>
           </div>

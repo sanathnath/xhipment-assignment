@@ -28,11 +28,10 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<AuthPage />} />
-          {/* <Route element={<PrivateRoutes />}>
+          <Route element={<PrivateRoutes />}>
             <Route path='/my-account' element={<AccountPage />} />
-          </Route> */}
-          <Route path='/my-account' element={<AccountPage />} />
-          <Route path='/create-post' element={<CreatePostPage />} />
+            <Route path='/create-post' element={<CreatePostPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

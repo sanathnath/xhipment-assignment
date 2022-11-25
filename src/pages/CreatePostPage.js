@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { PostState } from "../contexts/PostContext";
 import { UserState } from "../contexts/UserContext";
 
 function CreatePostPage() {
@@ -10,6 +11,7 @@ function CreatePostPage() {
   const [body, setBody] = useState("");
   const navigate = useNavigate();
   const { user } = UserState();
+  const { post, setPost } = PostState();
 
   const handleSubmit = () => {
     const data = { title: title, body: body ,userId:user.user.uid };
@@ -17,6 +19,8 @@ function CreatePostPage() {
       .post("https://jsonplaceholder.typicode.com/posts", data)
       .then((res) => {
         console.log(res.data);
+        setPost([...post,res.data]);
+        navigate('/');
       });
   };
   return (
